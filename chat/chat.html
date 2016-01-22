@@ -1,0 +1,37 @@
+<head>
+  <title>chat</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+</head>
+<body>
+  {{> hello}}
+</body>
+<template name="hello">
+    <div class="menu">
+            <div class="back"><img src="http://i.imgur.com/DY6gND0.png" draggable="false"/></div>
+            <div class="name">Alex</div>
+            <div class="last">18:09</div>
+        </div>
+    <ol class="chat">
+        {{#each conversation}}
+            {{#if isAuthor author}}
+            <li class="self">
+                <div class="avatar"><img src="http://i.imgur.com/HYcn9xO.png" draggable="false"/></div>
+              <div class="msg">
+                <p>{{message}}</p>
+
+              </div>
+            </li>
+            {{else}}
+            <li class="other">
+                <div class="avatar"><img src="http://i.imgur.com/HYcn9xO.png" draggable="false"/></div>
+              <div class="msg">
+                <p>{{message}}</p>
+
+              </div>
+            </li>
+            {{/if}}
+        {{/each}}
+    </ol>
+    <input class="textarea" type="text" placeholder="Type here!"/><span class="send">SEND</span><div class="imgs"></div>
+</template>
